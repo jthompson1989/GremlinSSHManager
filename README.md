@@ -1,2 +1,3 @@
 # GremlinSSHManager
-Just a little project to teach me GoLang
+
+Just tinkering with a project to get comfortable with Go.
