@@ -5,6 +5,7 @@ import (
 	"errors"
 	"io"
 	"os"
+	"path/filepath"
 )
 
 type Server struct {
@@ -20,9 +21,24 @@ type Servers struct {
 	Server  []Server `xml:"server"`
 }
 
+func getXMLPath() (string, error) {
+	exePath, err := os.Executable()
+	if err != nil {
+		return "", err
+	}
+	exeDir := filepath.Dir(exePath)
+	return filepath.Join(exeDir, "servers.xml"), nil
+}
+
 func GetServers() (Servers, error) {
 	var servers Servers
-	xmlFile, err := os.Open("servers.xml")
+
+	xmlPath, err := getXMLPath()
+	if err != nil {
+		return servers, err
+	}
+
+	xmlFile, err := os.Open(xmlPath)
 
 	if err != nil {
 		return servers, err
@@ -48,8 +64,13 @@ func SaveServersToXml(servers Servers) error {
 		return err
 	}
 
+	xmlPath, err := getXMLPath()
+	if err != nil {
+		return err
+	}
+
 	// Create/truncate file for writing (0644 permissions)
-	err = os.WriteFile("servers.xml", xmlData, 0644)
+	err = os.WriteFile(xmlPath, xmlData, 0644)
 	return err
 }
 
