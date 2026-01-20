@@ -1,0 +1,37 @@
+<servers>
+  <server>
+    <name>web-01</name>
+    <host>192.168.1.10</host>
+    <port>22</port>
+    <username>deploy</username>
+    <auth>key</auth>
+  </server>
+  <server>
+    <name>db-01</name>
+    <host>192.168.1.20</host>
+    <port>22</port>
+    <username>postgres</username>
+    <auth>password</auth>
+  </server>
+  <server>
+    <name>staging-app</name>
+    <host>staging.example.local</host>
+    <port>2222</port>
+    <username>stager</username>
+    <auth>key</auth>
+  </server>
+  <server>
+    <name>dev-box</name>
+    <host>dev.local</host>
+    <port>22</port>
+    <username>devuser</username>
+    <auth>password</auth>
+  </server>
+  <server>
+    <name>jump-host</name>
+    <host>jump.example.com</host>
+    <port>2200</port>
+    <username>jumper</username>
+    <auth>key</auth>
+  </server>
+</servers>
