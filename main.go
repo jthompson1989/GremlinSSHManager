@@ -125,7 +125,7 @@ func DisplayServers() {
 	selectedServer := servers.Server[input-1]
 
 	var execError = ExeSSHPwd(selectedServer.Host, selectedServer.Port, selectedServer.UserName)
-	if execError == nil {
+	if execError != nil {
 		fmt.Printf("Error Occured while Executing Server %s \n", err.Error())
 		fmt.Scanln()
 	} else {
