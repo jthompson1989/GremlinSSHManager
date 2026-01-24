@@ -11,13 +11,14 @@ func main() {
 		RenderIntro()
 		fmt.Scanln(&input)
 
-		if input == "1" {
+		switch input {
+		case "1":
 			DisplayServers()
-		} else if input == "2" {
+		case "2":
 			AddingServer()
-		} else if input == "3" {
+		case "3":
 			RemovingServer()
-		} else if input == "4" {
+		case "4":
 			fmt.Println("EXITING")
 			return
 		}
